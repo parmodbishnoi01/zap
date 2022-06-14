@@ -1,0 +1,59 @@
+function wpb_cookies_tutorial1() { 
+ 
+$visit_time = date('F j, Y  g:i a');
+ 
+if(!isset($_COOKIE[wpb_visit_time])) {
+ 
+// set a cookie for 1 year
+setcookie('wpb_visit_time', $visit_time, time()+31556926);
+ 
+}
+ 
+} 
+
+
+function wpb_cookies_tutorial(){
+	
+	$visit_time = date('F j, Y g:i a');
+	if(!isset($_COOKIE[wpb_visit_time])){
+
+	setcookie('wpd_visit_time', $visit_time, time()+31336926);
+
+
+	}
+}
+function wpb_cookies_tutorial2() { 
+// Time of user's visit
+$visit_time = date('F j, Y g:i a');
+ 
+// Check if cookie is already set
+if(isset($_COOKIE['wpb_visit_time'])) {
+ 
+// Do this if cookie is set 
+function visitor_greeting() {
+ 
+// Use information stored in the cookie 
+$lastvisit = $_COOKIE['wpb_visit_time'];
+ 
+$string .= 'You last visited our website '. $lastvisit .'. Check out whats new'; 
+ 
+return $string;
+}   
+ 
+} else { 
+ 
+// Do this if the cookie doesn't exist
+function visitor_greeting() { 
+$string .= 'New here? Check out these resources...' ;
+return $string;
+}   
+ 
+// Set the cookie
+setcookie('wpb_visit_time',  $visit_time, time()+31556926);
+}
+ 
+// Add a shortcode 
+add_shortcode('greet_me', 'visitor_greeting');
+ 
+} 
+add_action('init', 'wpb_cookies_tutorial2');
