@@ -12,7 +12,7 @@ $api_response = json_decode( wp_remote_retrieve_body( $response ), true );
 	<thead>
 		<tr>
 		<th>InstituteId</th>
-		<th>Institute Name</th>
+		<th>Institute Name Parmod</th>
 	    </tr>
 </thead>
 <tbody>
